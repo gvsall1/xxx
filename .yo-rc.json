@@ -1,0 +1,37 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.exc",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "5.5.0",
+    "applicationType": "microservice",
+    "baseName": "order",
+    "packageName": "com.exc",
+    "packageFolder": "com/exc",
+    "serverPort": "8082",
+    "authenticationType": "uaa",
+    "uaaBaseName": "uaa",
+    "cacheProvider": "memcached",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": true,
+    "jwtSecretKey": "ZjJmMDAxM2Q5NjNlYzEyMjI5NDU4MDA5ODZlYzQyNjU5ZDMyZTgzYzAyMTVlNDIxNzE5MjRmMTFlNWViNzVjM2RhNDkzMzc5MTBmYjc3NGQ5Nzg3NDNhZTIwNWJlMzViZjlhZjA2ZDcxYzUyODQ4NjM2YjcxYmYzZWViZTVmZTA=",
+    "enableTranslation": true,
+    "languages": [
+      "en"
+    ],
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "clientPackageManager": "npm",
+    "nativeLanguage": "en",
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
