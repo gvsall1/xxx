@@ -1,0 +1,4 @@
+id;fee_id;currency_name;rate_url;is_token;node_status;min_amount
+1;1;ETH;;false;OK;10
+2;1;BTC;;false;OK;10
+3;1;ETC;;false;OK;10

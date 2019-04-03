@@ -5,6 +5,34 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181107114247_added_entity_CryptoCurrency.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181107114248_added_entity_CurrencyFee.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181107114249_added_entity_OrderPairFee.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181107114252_added_entity_CurrencyPair.xml" relativeToChangelogFile="false"/>
+
+    <include file="config/liquibase/changelog/operation/20180316080435_added_entity_COEtc.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/operation/20180316080435_added_entity_COEth.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/operation/20180316080435_added_entity_COBtc.xml" relativeToChangelogFile="false"/>
+
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20181107114247_added_entity_constraints_CryptoCurrency.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181107114252_added_entity_constraints_CurrencyPair.xml" relativeToChangelogFile="false"/>
+
+    <include file="config/liquibase/changelog/order/20180316080440_added_entity_OrderPairEtcBtcOpen.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/order/20180316080440_added_entity_OrderPairEtcBtcOther.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/order/20180316080440_added_entity_OrderPairEthBtcOpen.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/order/20180316080440_added_entity_OrderPairEthBtcOther.xml" relativeToChangelogFile="false"/>
+
+    <include file="config/liquibase/changelog/operation/20180316080435_added_entity_constraints_COEtc.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/operation/20180316080435_added_entity_constraints_COEth.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/operation/20180316080435_added_entity_constraints_COBtc.xml" relativeToChangelogFile="false"/>
+
+    <include file="config/liquibase/changelog/order/20180316080440_added_entity_constraints_OrderPairEthBtcOpen.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/order/20180316080440_added_entity_constraints_OrderPairEthBtcOther.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/order/20180316080440_added_entity_constraints_OrderPairEtcBtcOpen.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/order/20180316080440_added_entity_constraints_OrderPairEtcBtcOther.xml" relativeToChangelogFile="false"/>
+
+    <include file="config/liquibase/changelog/20180316080441_load_data.xml" relativeToChangelogFile="false"/>
+
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

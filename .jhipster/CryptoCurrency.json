@@ -1,0 +1,58 @@
+{
+    "name": "CryptoCurrency",
+    "fields": [
+        {
+            "fieldName": "name",
+            "javadoc": "ETH,USD etc..",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "rateUrl",
+            "javadoc": "Optional",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isToken",
+            "javadoc": "indicate if this currency is token",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "nodeUrlSendTX",
+            "javadoc": "Optional",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nodeStatus",
+            "javadoc": "indicate currency node status",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "minAmount",
+            "javadoc": "min money amount, to keep trading available",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "javadoc": "Currency fee details, during deposit/withdraw",
+            "relationshipName": "fee",
+            "otherEntityName": "currencyFee",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181107114247",
+    "javadoc": "currency presentation, including fiat",
+    "entityTableName": "crypto_currency",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "order",
+    "applications": "*",
+    "microserviceName": "order"
+}

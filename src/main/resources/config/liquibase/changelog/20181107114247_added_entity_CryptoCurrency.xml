@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity CryptoCurrency.
+    -->
+    <changeSet id="20181107114247-1" author="jhipster">
+        <createTable tableName="crypto_currency" remarks="currency presentation, including fiat">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="currency_name" type="varchar(255)" remarks="ETH,USD etc..">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="rate_url" type="varchar(255)" remarks="Optional">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="is_token" type="boolean" remarks="indicate if this currency is token">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="node_url_send_tx" type="varchar(255)" remarks="Optional">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="node_status" type="varchar(255)" remarks="indicate currency node status">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="min_amount" type="decimal(10,2)" remarks="min money amount, to keep trading available">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="fee_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

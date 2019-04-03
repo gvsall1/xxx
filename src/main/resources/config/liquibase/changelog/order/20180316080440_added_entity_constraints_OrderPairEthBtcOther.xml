@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity OrderPair.
+    -->
+    <changeSet id="20180316080440-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="pair_id"
+                                 baseTableName="order_pair_eth_btc_other"
+                                 constraintName="fk_eth_btc_other_pair_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="currency_pair"/>
+
+        <addForeignKeyConstraint baseColumnNames="execution_of_id"
+                                 baseTableName="order_pair_eth_btc_other_exec"
+                                 constraintName="fk_eth_btc_other_exec_pairs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="order_pair_eth_btc_other"/>
+
+        <addForeignKeyConstraint baseColumnNames="executions_id"
+                                 baseTableName="order_pair_eth_btc_other_exec"
+                                 constraintName="fk_eth_btc_other_exec_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="order_pair_eth_btc_other"/>
+
+    </changeSet>
+</databaseChangeLog>

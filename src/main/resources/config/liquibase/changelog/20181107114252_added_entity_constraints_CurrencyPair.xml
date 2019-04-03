@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity CurrencyPair.
+    -->
+    <changeSet id="20181107114252-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="buy_id"
+                                 baseTableName="currency_pair"
+                                 constraintName="fk_currency_pair_buy_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="crypto_currency"/>
+
+        <addForeignKeyConstraint baseColumnNames="sell_id"
+                                 baseTableName="currency_pair"
+                                 constraintName="fk_currency_pair_sell_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="crypto_currency"/>
+
+        <addForeignKeyConstraint baseColumnNames="fee_id"
+                                 baseTableName="currency_pair"
+                                 constraintName="fk_currency_pair_fee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="order_pair_fee"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,27 @@
+{
+    "name": "CurrencyFee",
+    "fields": [
+        {
+            "fieldName": "deposit",
+            "javadoc": "fee during deposit operation",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "withdraw",
+            "javadoc": "fee during withdraw operation",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181107114248",
+    "javadoc": "currency fee settings",
+    "entityTableName": "currency_fee",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "order",
+    "applications": "*",
+    "microserviceName": "order"
+}

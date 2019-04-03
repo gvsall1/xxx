@@ -1,0 +1,35 @@
+{
+    "name": "CurrencyPair",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "buy",
+            "otherEntityName": "cryptoCurrency",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "sell",
+            "otherEntityName": "cryptoCurrency",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "fee",
+            "otherEntityName": "orderPairFee",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181107114252",
+    "javadoc": "Part of business logic, it is has no relationship in DB layer, because of complexity/performance",
+    "entityTableName": "currency_pair",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "order",
+    "applications": "*",
+    "microserviceName": "order"
+}

@@ -1,0 +1,67 @@
+{
+    "name": "CurrencyOperation",
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "OperationType",
+            "fieldValues": "DEPOSIT,WITHDRAW"
+        },
+        {
+            "fieldName": "createDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "validateDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "message",
+            "javadoc": "operation details that informs user about this operation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isValid",
+            "javadoc": "indicate if this operation were success",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "tx",
+            "javadoc": "transaction ID",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "receiverAddress",
+            "javadoc": "receiver public key",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "value",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "currency",
+            "otherEntityName": "cryptoCurrency",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "userInfo",
+            "otherEntityName": "userInfo",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181107114246",
+    "javadoc": "User currency operation type",
+    "entityTableName": "currency_operation",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "order",
+    "applications": "*",
+    "microserviceName": "order"
+}

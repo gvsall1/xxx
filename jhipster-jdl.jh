@@ -1,0 +1,108 @@
+CurrencyOperation
+/** currency presentation, including fiat */
+entity CryptoCurrency {
+/** ETH,USD etc.. */
+	name String required,
+    /** Optional */
+    rateUrl String,
+      /** indicate if this currency is token */
+    isToken Boolean,
+      /** Optional */
+    nodeUrlSendTX String,
+    /** indicate currency node status */
+    nodeStatus String,
+    /** min money amount, to keep trading available*/
+  	minAmount BigDecimal
+}
+
+/** currency fee settings */
+entity CurrencyFee {
+/** fee during deposit operation*/
+	deposit BigDecimal,
+    /** fee during withdraw operation*/
+	withdraw BigDecimal
+}
+entity OrderPairFee {
+  /** fee during placeOrder operation*/
+	placeOrder BigDecimal,
+    /** fee during modifyOrder operation*/
+	modifyOrder BigDecimal,
+    /** fee during deleteOrder operation*/
+	deleteOrder BigDecimal
+}
+
+/** TODO: each order pair, in separate table in DB*/
+entity OrderPair{
+ 	createDate ZonedDateTime,
+    cancelDate ZonedDateTime,
+ 	modifyDate ZonedDateTime,
+    executedDate ZonedDateTime,
+
+    value BigDecimal,
+    rate BigDecimal,
+    type OrderType,
+    status OrderStatusType
+}
+entity UserInfo {
+/** inducate if 2fa enabled */
+	is2Fa Boolean,
+    /** secret private key for 2fa */
+    secret String,
+	streetAddress String,
+	postalCode String,
+	city String,
+	stateProvince String,
+    countryCode String
+}
+/** Part of business logic, it is has no relationship in DB layer, because of complexity/performance */
+entity CurrencyPair {
+}
+
+
+
+/** When order in process, it can't be executed by others*/
+enum OrderStatusType{
+	OPEN, IN_PROCESS, FAILED, HALT, NEW, MODIFIED, CANCELLED, EXECUTED
+}
+
+/** user currency operation type */
+enum OperationType {
+	DEPOSIT, WITHDRAW
+}
+
+/** user currency operation type */
+enum OrderType {
+	BUY, SELL
+}
+
+relationship ManyToMany {
+ 	OrderPair{execution} to OrderPair{execution}
+}
+relationship ManyToOne {
+	/** Currency fee details, during deposit/withdraw */
+	  CryptoCurrency{fee } to CurrencyFee,
+      CurrencyPair{buy(name)} to CryptoCurrency,
+      CurrencyPair{sell(name)} to CryptoCurrency,
+
+      CurrencyPair{fee} to OrderPairFee,
+      OrderPair{pair} to CurrencyPair,
+      CurrencyOperation{currency(name)} to CryptoCurrency
+
+}
+relationship OneToMany {
+
+    /** User from external service can  do orders */
+    UserInfo{orders} to OrderPair,
+    /** User from external service  can  currencies operation */
+	UserInfo{operations(tx)} to CurrencyOperation
+}
+
+
+paginate *  with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service * with serviceClass
+// Set an angular suffix
+//angularSuffix * with mySuffix

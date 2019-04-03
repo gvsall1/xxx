@@ -1,0 +1,31 @@
+{
+    "name": "OrderPairFee",
+    "fields": [
+        {
+            "fieldName": "placeOrder",
+            "javadoc": "fee during placeOrder operation",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "modifyOrder",
+            "javadoc": "fee during modifyOrder operation",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "deleteOrder",
+            "javadoc": "fee during deleteOrder operation",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181107114249",
+    "entityTableName": "order_pair_fee",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "order",
+    "applications": "*",
+    "microserviceName": "order"
+}

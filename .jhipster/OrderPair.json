@@ -1,0 +1,79 @@
+{
+    "name": "OrderPair",
+    "fields": [
+        {
+            "fieldName": "createDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "cancelDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "modifyDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "executedDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "value",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "rate",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "OrderType",
+            "fieldValues": "BUY,SELL"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "OrderStatusType",
+            "fieldValues": "OPEN,IN_PROCESS,FAILED,HALT,NEW,MODIFIED,CANCELLED,EXECUTED"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "pair",
+            "otherEntityName": "currencyPair",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "execution",
+            "relationshipName": "execution",
+            "otherEntityName": "orderPair",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "execution",
+            "otherEntityName": "orderPair",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "execution"
+        },
+        {
+            "relationshipName": "userInfo",
+            "otherEntityName": "userInfo",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181107114250",
+    "javadoc": "TODO: each order pair, in separate table in DB",
+    "entityTableName": "order_pair",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "order",
+    "applications": "*",
+    "microserviceName": "order"
+}
